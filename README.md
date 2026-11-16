@@ -23,7 +23,7 @@ Create `config.json` in the printed config directory:
 }
 ```
 
-Choose `claude`, `codex`, or `opencode`. Claude Code and Codex use the Sprite image's installed CLIs. If OpenCode is absent, the plugin installs `opencode-ai@1.18.29` in the new Sprite's private tools directory. The actual installed version appears in Info. A missing Claude/Codex executable fails setup explicitly.
+Choose `claude`, `codex`, or `opencode`. Claude Code and Codex use the Sprite image's installed CLIs. If OpenCode is absent, the plugin installs `@opencode/cli@2.3.0` in the new Sprite's private tools directory. The actual installed version appears in Info. A missing Claude/Codex executable fails setup explicitly.
 
 For another agent, or to pass arguments, supply an argv array:
 

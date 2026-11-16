@@ -24,7 +24,7 @@ Fleet orchestration and automatic worktree-removal deletion are not included. Cl
 - The installed CLI uses `exec --tty`, not the issue's illustrative `exec -i` syntax.
 - `sprite file push` reported a missing remote directory even when `exec ls` proved it existed. Transfers therefore use binary stdin through non-TTY `sprite exec`; this path passed live testing and avoids colon-delimited source/destination parsing.
 - The exec API reports the agent's current command after an `exec`, not the original wrapper path. Session matching uses the TTY flag within the dedicated Sprite, so changing agent commands or current directories does not lose the session.
-- OpenCode 1.18.29 requires its postinstall binary-selection step. Setup explicitly enables npm scripts and invokes the package postinstall script so retries also repair a prior partial installation.
+- OpenCode 2.3.0 (`@opencode/cli`) requires its postinstall binary-selection step. Setup explicitly enables npm scripts and invokes the package postinstall script so retries also repair a prior partial installation.
 - A Herdr popup opened by a headless server is not exposed in normal pane listings. Confirmation uses a declared split pane, which is visible and controllable in both headless and interactive Herdr.
 - The org concurrent-Sprite limit briefly rejected one creation. The failed mapping retained the intended name and error. After an authenticated list confirmed absence and capacity freed, that rejected creation was retried and the live test continued.
 

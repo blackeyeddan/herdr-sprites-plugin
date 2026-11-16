@@ -108,7 +108,7 @@ export function finishSetup(stateDir, entry, progress = () => {}) {
   const dir = path.dirname(entryFile(stateDir, entry.pane));
   // Use image-provided CLIs; install a pinned OpenCode when absent from the image.
   if (entry.command[0] === 'opencode') {
-    remote(entry, ['sh', '-lc', `if ! command -v opencode >/dev/null; then npm install --ignore-scripts=false --prefix ${quote(entry.remoteBase + '/tools')} opencode-ai@1.18.29 && node ${quote(entry.remoteBase + '/tools/node_modules/opencode-ai/postinstall.mjs')}; fi`]);
+    remote(entry, ['sh', '-lc', `if ! command -v opencode >/dev/null; then npm install --ignore-scripts=false --prefix ${quote(entry.remoteBase + '/tools')} @opencode/cli@2.3.0 && node ${quote(entry.remoteBase + '/tools/node_modules/@opencode/cli/postinstall.mjs')}; fi`]);
   }
   const toolPath = `${entry.remoteBase}/tools/node_modules/.bin`;
   remote(entry, ['sh', '-lc', `export PATH=${quote(toolPath)}:$PATH; command -v ${quote(entry.command[0])} >/dev/null || { echo 'Agent CLI missing; install it inside the Sprite before starting a new run.' >&2; exit 1; }`]);
